@@ -1,0 +1,39 @@
+.user-profile-page {
+  padding: 1rem;
+  background: #fff;
+}
+
+.user-profile-page h1 {
+  color: #343a40;
+  margin-bottom: 1rem;
+}
+
+.user-profile-page h2 {
+  color: #6c757d;
+  margin-bottom: 0.5rem;
+}
+
+.auction-lots-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.user-profile-page h1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.go-to-bids-btn {
+  padding: 8px 16px; /* Example padding, adjust as needed */
+  background-color: #f0f0f0; /* Example background color, adjust as needed */
+  border: none;
+  cursor: pointer;
+}
+
+/* Add any other styles for hover, active states, etc., as needed */
+.go-to-bids-btn:hover {
+  background-color: #e0e0e0; /* Darken button on hover */
+}
+
+/* Add additional styles as needed */

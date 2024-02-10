@@ -29,3 +29,10 @@
   cursor: pointer;
   margin-top: 0.5rem;
 }
+
+.auction-item-img{
+  width: 100%;
+  height: auto;
+  margin-bottom: 0.5rem;  
+  aspect-ratio: 16/9;
+}

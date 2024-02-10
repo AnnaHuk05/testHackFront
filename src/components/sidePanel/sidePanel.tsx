@@ -59,6 +59,12 @@ const SidePanel: React.FC = () => {
       <div className="price-filter">
         <h3>Ціна</h3>
         <Slider
+          sx={{
+            "--Slider-track-color": "#843B62", // track color
+            "--Slider-thumb-color": "#843B62", // thumb color
+            "--Slider-track-height": "4px",
+            "--Slider-thumb-size": "16px",
+          }}
           getAriaLabel={() => "Price range"}
           value={value}
           onChange={handleChange}
