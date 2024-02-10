@@ -1,11 +1,11 @@
 
-  .box {
+.box {
     max-width: 750px;
     margin-left: 2rem;
     display: flex;
     background-color: #fff;
   }
-  
+
   .nav_btn {
     position: absolute;
     top: 50%;
@@ -22,24 +22,24 @@
     fill: #000;
     width: 100%;
     height: 100%;
-  
+
   }
-  
+
   .nav_btn_left {
     left: 0;
   }
   .nav_btn_right {
     right: 0;
   }
-  
+
   .slide {
     padding-top: 2rem;
   }
-  
+
   .carousel .control-dots {
     z-index: 3;
   }
-  
+
   .ind {
     width: 20px;
     height: 20px;
@@ -51,12 +51,12 @@
     position: relative;
     z-index: 100;
   }
-  
+
   .ind.active {
     background-color: #000;
     transition: 500ms 200ms;
   }
-  
+
   .ind:not(:last-child) {
     margin-right: 1.4rem;
   }
@@ -65,7 +65,7 @@
     justify-content: space-between;
     margin: auto;
   }
-  
+
   .carousel .carousel-status {
     left: 0;
     right: 0;
@@ -87,6 +87,6 @@
   }
   .carousel .thumbs-wrapper {
     margin: auto;
-    
-    
+
+
 }
