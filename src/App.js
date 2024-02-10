@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LotInfoPage from "./pages/LotInfo/LotInfoPage.tsx";
+//import LotInfoPage from "./pages/LotInfo/LotInfoPage.tsx";
 import MainAuctionPage from "./pages/mainAuctionPage/mainAuctionPage.tsx";
 import Header from "./components/header/header.tsx";
 import './App.css';
@@ -48,7 +48,7 @@ function App() {
       <Header />
       <Routes>
         <Route path="/" element={<MainAuctionPage auctions={auctions}/>} />
-        <Route path="/lotInfo" element={<LotInfoPage />} />
+       
       </Routes>
     </Router>
   );
