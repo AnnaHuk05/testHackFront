@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LotInfoPage from "./pages/LotInfo/lotInfoPage.tsx";
+import LotInfoPage from "./pages/LotInfo/LotInfoPage.tsx";
 import MainAuctionPage from "./pages/mainAuctionPage/mainAuctionPage.tsx";
 import Header from "./components/header/header.tsx";
 import './App.css';
