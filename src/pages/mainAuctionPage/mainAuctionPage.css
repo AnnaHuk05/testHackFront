@@ -1,0 +1,20 @@
+.main-auction-container {
+    display: flex;
+    padding: 1rem;
+    justify-content: center;
+    align-content: center;
+  }
+  
+  .auction-items-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    width: 90%;
+  }
+  
+  @media (max-width: 768px) {
+    .auction-items-container {
+      grid-template-columns: 1fr; /* Stack the items on smaller screens */
+    }
+  }
+  

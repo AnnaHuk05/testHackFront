@@ -1,8 +1,32 @@
-.header{
-    position:sticky;
-    top:0;
-    z-index: 5;
-    background-color: white;
+/* header.css */
+.header {
+    background-color: #f8f8f8;
+    border-bottom: 1px solid #e7e7e7;
+    padding: 10px 0;
+  }
+  
+  .container {
+    margin: 0 auto;
+  }
+  
+  .header_row {
     display: flex;
-    flex-direction: row;
-}
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo img {
+    max-width: 12.5rem;
+    height: auto;
+  }
+  
+  .header-nav img {
+    margin-left: 20px;
+  }
+
+  .chat-profile-container{
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  

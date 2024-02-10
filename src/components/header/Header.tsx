@@ -1,3 +1,4 @@
+// Header.tsx
 import React from "react";
 import Search from "../searchField/search.tsx";
 import "./header.css";
@@ -7,31 +8,24 @@ function Header() {
     <header className="header">
       <div className="container">
         <div className="header_row">
-          <div className="logo">
+          <div className="logo" >
             <img
               src="logo-icon.svg"
-              width={"140px"}
-              height={"100px"}
-              alt="Edit icon"
+              alt="Logo"
             />
           </div>
-          <div className="header-nav">
-           
-            <a href="#!">
+          <Search />
+          <div className="chat-profile-container">
+          <a href="#!">
               <img
                 src="chat-icon.png"
-                alt="chat-item"
-                width={"35px"}
-                height={"35px"}
+                alt="Chat"
               />
             </a>
-            <Search />
             <a href="#!">
               <img
                 src="profile-icon.svg"
-                alt="profile-item"
-                width={"35px"}
-                height={"35px"}
+                alt="Profile"
               />
             </a>
           </div>
