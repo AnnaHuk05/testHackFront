@@ -1,10 +1,10 @@
 import React from "react";
-import PhotoViewer from "../../components/photoViewer/photoViewer.tsx";
+//import PhotoViewer from "../../components/photoViewer/photoViewer.tsx";
 
 function LotInfoPage() {
   return (
  
-      <PhotoViewer />
+ <><h1>hey</h1></>
     
   );
 }
