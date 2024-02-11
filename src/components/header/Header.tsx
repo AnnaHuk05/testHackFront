@@ -52,7 +52,7 @@ function Header() {
           <div className="chat-profile-container">
             {isUserLoggedIn ? (
               <>
-                <a href="#!">
+                <a href="/chat">
                   <img src="chat-icon.png" alt="Chat" />
                 </a>
                 <a href="/user-info">

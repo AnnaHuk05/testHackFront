@@ -19,44 +19,6 @@ const UserProfilePage: React.FC = () => {
   const [userBids, setUserBids] = useState<UserBidItemProps[]>([]);
   const [view, setView] = useState<"lots" | "bids">("lots");
   const navigate = useNavigate();
-  const tempUserBids: UserBidItemProps[] = [
-    {
-      id: 1,
-      lotName: "Lot 1",
-      price: 100,
-      user: {
-        id: 1,
-        username: "User 1",
-      },
-      biggestBid: 1120,
-      bidAt: "2021-05-01T12:00:00",
-      lotId: 1,
-    },
-    {
-      id: 2,
-      lotName: "Lot 2",
-      price: 200,
-      user: {
-        id: 1,
-        username: "User 1",
-      },
-      biggestBid: 200,
-      bidAt: "2021-05-01T12:00:00",
-      lotId: 2,
-    },
-    {
-      id: 3,
-      lotName: "Lot 3",
-      price: 300,
-      user: {
-        id: 1,
-        username: "User 1",
-      },
-      biggestBid: 300,
-      bidAt: "2021-05-01T12:00:00",
-      lotId: 3,
-    },
-  ];
 
   useEffect(() => {
     fetch(`${SERVER_URL}users/`, { credentials: "include" })
@@ -74,7 +36,9 @@ const UserProfilePage: React.FC = () => {
           credentials: "include",
         })
           .then((response) => response.json())
-          .then((data) => setUserBids(tempUserBids));
+          .then((data) => {
+            console.log(data);
+            setUserBids(data.response.content);});
       })
       .catch((error) => console.error("Error fetching user details:", error));
   }, []);

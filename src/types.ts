@@ -24,6 +24,7 @@ export interface AuctionLotPartialResponse {
   currentBid?: AuctionBid;
   endDateTime: string;
   startDateTime: string;
+  bidsCount: number;
   imageNames: string[];
   categories: string[];
 }
@@ -57,8 +58,15 @@ export interface AuctionCategory {
 }
 
 export const auctionCategories: string[] = [
-  'ELECTRONICS',
-  'FURNITURE' ,
-  'ANTIQUES'
+  "ART",
+  "ANTIQUES",
+  "JEWELRY",
+  "FURNITURE",
+  "ELECTRONICS",
+  "CLOTHING",
+  "COLLECTIBLES",
+  "TOYS",
+  "SPORTS",
+  "OTHER"
 ];
 
