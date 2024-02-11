@@ -51,3 +51,14 @@ export interface UserBidItemProps {
   lotName: string;
   biggestBid: number;
 }
+
+export interface AuctionCategory {
+  title: string;
+}
+
+export const auctionCategories: string[] = [
+  'ELECTRONICS',
+  'FURNITURE' ,
+  'ANTIQUES'
+];
+

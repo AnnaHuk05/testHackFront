@@ -13,10 +13,16 @@
   margin-bottom: 0.5rem;
 }
 
+.user-profile-header-row{
+  display: flex;
+  justify-content: space-between;
+}
+
 .header-container{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-direction: row;
 }
 
 .auction-lots-container {
@@ -39,6 +45,14 @@
   padding: 1rem;
 }
 
+.auction-bids-container {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  border-bottom: 1px solid #eaeaea;
+  cursor: pointer;
+}
+
 @media (max-width: 768px) {
   .auction-items-profile-container {
     grid-template-columns: repeat(2, 1fr); /* Show 2 columns on small screens */
@@ -57,4 +71,16 @@
   font-style: normal;
   cursor: pointer;
   color: #656262;
+}
+
+.add-new-lot-button{
+  padding: 0rem 4rem; /* Example padding, adjust as needed */
+  border: none;
+  border-radius: 1rem;
+  font-style: bold;
+  font-size: 1rem;
+  font-family: Poppins, sans-serif;
+  cursor: pointer;
+  background-color: #803935;
+  color: #fff;
 }

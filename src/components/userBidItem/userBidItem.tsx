@@ -2,14 +2,13 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './userBidItem.css';
 import { UserBidItemProps } from '../../types';
-import { format } from 'date-fns';
 
 
 
 function UserBidItem (bid: UserBidItemProps) {
     const navigate = useNavigate();
     const isHighestBid = bid.price >= bid.biggestBid;
-    const bidDate = format(new Date(bid.bidAt), 'yyyy-MM-dd HH:mm:ss');
+    const bidDate = new Date(bid.bidAt).toLocaleString();
   
     const goToLotDetail = () => {
       navigate(`/lot-detail/${bid.lotId}`);
