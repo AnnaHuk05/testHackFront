@@ -3,9 +3,9 @@ import PhotoViewer from "../../components/photoViewer/photoViewer.tsx";
 
 function LotInfoPage() {
   return (
-    <>
+ 
       <PhotoViewer />
-    </>
+    
   );
 }
 
