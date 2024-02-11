@@ -24,6 +24,7 @@ export interface AuctionLotPartialResponse {
   currentBid?: AuctionBid;
   endDateTime: string;
   startDateTime: string;
+  bidsCount: number;
   imageNames: string[];
   categories: string[];
 }

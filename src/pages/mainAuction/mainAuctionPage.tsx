@@ -18,6 +18,10 @@ const MainAuctionPage: React.FC = () => {
   });
   
   const fetchFilteredAuctions = async (filterParams) => {
+    if(filterParams.categories[0] === "RESET" || filterParams.priceRange.length === 0) {
+      fetchAuctions();
+      return;
+    }
     try {
       const queryString = new URLSearchParams({
         categories: filterParams.categories.join(','),

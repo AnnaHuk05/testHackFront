@@ -31,6 +31,12 @@ const SidePanel: React.FC<Props> = (props) => {
       props.onFilterApply({ categories: selectedCategories, priceRange: value });
     };
 
+    const handleFilterReset = () => {
+      setSelectedCategories([]);
+      setValue([0, 4000]);
+      props.onFilterApply({ categories: ["RESET"], priceRange: [] });
+    }
+
   return (
     <aside className="side-panel">
       <div className="categories-section">
@@ -91,7 +97,7 @@ const SidePanel: React.FC<Props> = (props) => {
             slotProps={{
               input: {
                 min: 0,
-                max: 4000,
+                max: 100000,
               },
             }}
           />
@@ -99,6 +105,9 @@ const SidePanel: React.FC<Props> = (props) => {
         </div>
         <Button variant="solid" size="sm" onClick={handleFilterApply}>
           Застосувати
+        </Button>
+        <Button variant="solid" size="sm" onClick={handleFilterReset}>
+          Скинути
         </Button>
       </div>
     </aside>

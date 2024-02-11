@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import LotInfoPage from "./pages/LotInfo/lotInfoPage.tsx";
+import LotInfoPage from "./pages/LotInfo/LotInfoPage.tsx";
 import MainAuctionPage from "./pages/mainAuction/mainAuctionPage.tsx";
 import Header from "./components/header/Header.tsx";
 import UserProfilePage from "./pages/userProfile/userProfilePage.tsx";
