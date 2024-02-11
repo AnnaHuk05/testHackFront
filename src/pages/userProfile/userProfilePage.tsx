@@ -1,57 +1,117 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { useNavigate } from "react-router-dom";
 import AuctionLotItem from "../../components/auctionItem/auctionItem.tsx";
-import "./userProfilePage.css";
+import { SERVER_URL } from "../../constants.ts";
 import {
-  AuctionItemProps,
   UserResponse,
   AuctionLotListResponse,
+  UserBidItemProps,
 } from "../../types";
+import UserBidItem from "../../components/userBidItem/userBidItem.tsx";
 
 const UserProfilePage: React.FC = () => {
   const [user, setUser] = useState<UserResponse | null>(null);
   const [auctionLots, setAuctionLots] = useState<
     AuctionLotListResponse["response"]
   >([]);
-  const navigate = useNavigate(); // Initialize the navigate function
+  const [userBids, setUserBids] = useState<UserBidItemProps[]>([]);
+  const [view, setView] = useState<"lots" | "bids">("lots");
+  const navigate = useNavigate();
+  const tempUserBids: UserBidItemProps[] = [
+    {
+      id: 1,
+      lotName: "Lot 1",
+      price: 100,
+      user: {
+        id: 1,
+        username: "User 1",
+      },
+      biggestBid: 1120,
+      bidAt: "2021-05-01T12:00:00",
+      lotId: 1,
+    },
+    {
+      id: 2,
+      lotName: "Lot 2",
+      price: 200,
+      user: {
+        id: 1,
+        username: "User 1",
+      },
+      biggestBid: 200,
+      bidAt: "2021-05-01T12:00:00",
+      lotId: 2,
+    },
+    {
+      id: 3,
+      lotName: "Lot 3",
+      price: 300,
+      user: {
+        id: 1,
+        username: "User 1",
+      },
+      biggestBid: 300,
+      bidAt: "2021-05-01T12:00:00",
+      lotId: 3,
+    },
+  ];
 
   useEffect(() => {
-    fetch("http://localhost:8080/users/", { credentials: "include" })
+    fetch(`${SERVER_URL}users/`, { credentials: "include" })
       .then((response) => response.json())
       .then((data) => {
         setUser(data);
-        fetch(`http://localhost:8080/auction-lots/users/${data.id}`, {
+
+        fetch(`${SERVER_URL}auction-lots/users/${data.id}`, {
           credentials: "include",
         })
           .then((response) => response.json())
           .then((data) => setAuctionLots(data.response));
+
+        fetch(`${SERVER_URL}auction-lots/users/${data.id}/bids/`, {
+          credentials: "include",
+        })
+          .then((response) => response.json())
+          .then((data) => setUserBids(tempUserBids));
       })
       .catch((error) => console.error("Error fetching user details:", error));
   }, []);
 
   const goToBids = () => {
-    navigate("/your-bids-route"); // Replace '/your-bids-route' with the actual path
+    setView("bids");
   };
 
-  if (!user || !auctionLots) {
+  const goToLots = () => {
+    setView("lots");
+  };
+
+  if (!user) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="user-profile-page">
       <div className="header-container">
-        <h1>Welcome back, {user.username}!</h1>
-        <button className="go-to-bids-btn" onClick={goToBids}>
-          Перейти до ваших ставок
-        </button>
+        <h1>З поверненням, {user.username}!</h1>
+        <div>
+          <button onClick={goToLots}>Переглянути аукціони</button>
+          <button onClick={goToBids}>Переглянути ставки</button>
+        </div>
       </div>
       <section>
-        <h2>Your Auction Lots</h2>
-        <div className="auction-items-container">
-          {auctionLots.map((lot) => (
-            <AuctionLotItem key={lot.id} {...lot} />
-          ))}
-        </div>
+        {view === "lots" ? (
+          <div className="auction-items-profile-container">
+            {auctionLots.map((lot) => (
+              <AuctionLotItem key={lot.id} {...lot} />
+            ))}
+          </div>
+        ) : (
+          <div className="auction-items-profile-container">
+            {userBids.map((bid) => (
+              <UserBidItem key={bid.id} {...bid} />
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );

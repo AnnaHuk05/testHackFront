@@ -1,0 +1,26 @@
+.user-bid-item {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Adjust the number of columns as needed */
+    gap: 1rem;
+    padding: 1rem;
+    border-bottom: 1px solid #eaeaea;
+    cursor: pointer;
+  }
+  
+  .user-bid-item-content:hover {
+    background-color: #f7f7f7;
+  }
+  
+  .user-bid-lot-name {
+    color: #007bff;
+    text-decoration: underline;
+  }
+  
+  .highest-bid {
+    color: green;
+  }
+  
+  .outbid {
+    color: red;
+  }
+  

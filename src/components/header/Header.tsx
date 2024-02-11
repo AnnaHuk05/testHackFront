@@ -9,7 +9,7 @@ function Header() {
   useEffect(() => {
     const checkUserLoggedIn = async () => {
       try {
-        const response = await fetch(`${SERVER_URL}/check-login`, {
+        const response = await fetch(`${SERVER_URL}check-login`, {
           credentials: "include",
         });
         if (response.redirected) {
@@ -27,7 +27,7 @@ function Header() {
 
   const handleSignIn = async () => {
     try {
-      const response = await fetch(SERVER_URL + "/car", {
+      const response = await fetch(SERVER_URL + "car", {
         method: "GET",
         redirect: "follow",
         credentials: "include",

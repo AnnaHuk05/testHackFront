@@ -38,3 +38,16 @@ export interface AuctionBid {
   price: number;
   bidAt: string;
 }
+
+export interface UserBidItemProps {
+  id: number;
+  price: number;
+  user: {
+    id: number;
+    username: string;
+  };
+  bidAt: string;
+  lotId: number;
+  lotName: string;
+  biggestBid: number;
+}

@@ -13,6 +13,12 @@
   margin-bottom: 0.5rem;
 }
 
+.header-container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .auction-lots-container {
   display: flex;
   flex-wrap: wrap;
@@ -24,16 +30,31 @@
   align-items: center;
 }
 
-.go-to-bids-btn {
+.auction-items-profile-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  overflow-y: scroll;
+  height: 28rem;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .auction-items-profile-container {
+    grid-template-columns: repeat(2, 1fr); /* Show 2 columns on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .auction-items-profile-container {
+    grid-template-columns: 1fr; /* Stack the items on very small screens */
+  }
+}
+
+.go-to-bids{
   padding: 8px 16px; /* Example padding, adjust as needed */
-  background-color: #f0f0f0; /* Example background color, adjust as needed */
   border: none;
+  font-style: normal;
   cursor: pointer;
+  color: #656262;
 }
-
-/* Add any other styles for hover, active states, etc., as needed */
-.go-to-bids-btn:hover {
-  background-color: #e0e0e0; /* Darken button on hover */
-}
-
-/* Add additional styles as needed */
