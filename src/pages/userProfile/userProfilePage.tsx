@@ -1,57 +1,150 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom"; // Import useNavigate hook
+import { useNavigate } from "react-router-dom";
 import AuctionLotItem from "../../components/auctionItem/auctionItem.tsx";
-import "./userProfilePage.css";
+import { SERVER_URL } from "../../constants.ts";
 import {
-  AuctionItemProps,
   UserResponse,
-  AuctionLotListResponse,
-} from "../../types";
+  AuctionLotPartialResponse,
+  UserBidItemProps,
+} from "../../types.ts";
+import UserBidItem from "../../components/userBidItem/userBidItem.tsx";
+import "./userProfilePage.css";
+import { Button } from "react-day-picker";
 
 const UserProfilePage: React.FC = () => {
   const [user, setUser] = useState<UserResponse | null>(null);
-  const [auctionLots, setAuctionLots] = useState<
-    AuctionLotListResponse["response"]
-  >([]);
-  const navigate = useNavigate(); // Initialize the navigate function
+  const [auctionLots, setAuctionLots] = useState<AuctionLotPartialResponse[]>(
+    []
+  );
+  const [userBids, setUserBids] = useState<UserBidItemProps[]>([]);
+  const [view, setView] = useState<"lots" | "bids">("lots");
+  const navigate = useNavigate();
+  const tempUserBids: UserBidItemProps[] = [
+    {
+      id: 1,
+      lotName: "Lot 1",
+      price: 100,
+      user: {
+        id: 1,
+        username: "User 1",
+      },
+      biggestBid: 1120,
+      bidAt: "2021-05-01T12:00:00",
+      lotId: 1,
+    },
+    {
+      id: 2,
+      lotName: "Lot 2",
+      price: 200,
+      user: {
+        id: 1,
+        username: "User 1",
+      },
+      biggestBid: 200,
+      bidAt: "2021-05-01T12:00:00",
+      lotId: 2,
+    },
+    {
+      id: 3,
+      lotName: "Lot 3",
+      price: 300,
+      user: {
+        id: 1,
+        username: "User 1",
+      },
+      biggestBid: 300,
+      bidAt: "2021-05-01T12:00:00",
+      lotId: 3,
+    },
+  ];
 
   useEffect(() => {
-    fetch("http://localhost:8080/users/", { credentials: "include" })
+    fetch(`${SERVER_URL}users/`, { credentials: "include" })
       .then((response) => response.json())
       .then((data) => {
         setUser(data);
-        fetch(`http://localhost:8080/auction-lots/users/${data.id}`, {
+
+        fetch(`${SERVER_URL}auction-lots/users/${data.id}/`, {
           credentials: "include",
         })
           .then((response) => response.json())
           .then((data) => setAuctionLots(data.response));
+
+        fetch(`${SERVER_URL}auction-lots/users/${data.id}/bids/`, {
+          credentials: "include",
+        })
+          .then((response) => response.json())
+          .then((data) => setUserBids(tempUserBids));
       })
       .catch((error) => console.error("Error fetching user details:", error));
   }, []);
 
   const goToBids = () => {
-    navigate("/your-bids-route"); // Replace '/your-bids-route' with the actual path
+    setView("bids");
   };
 
-  if (!user || !auctionLots) {
+  const goToLots = () => {
+    setView("lots");
+  };
+
+  const goToAddLot = () => {
+    navigate("/add-lot");
+  }
+
+  if (!user) {
     return <div>Loading...</div>;
   }
 
   return (
     <div className="user-profile-page">
-      <div className="header-container">
-        <h1>Welcome back, {user.username}!</h1>
-        <button className="go-to-bids-btn" onClick={goToBids}>
-          Перейти до ваших ставок
-        </button>
+      <div className="">
+        <div className="user-profile-header-row">
+          <h1>З поверненням, {user.username}!</h1>
+          {view === "lots" ? (
+            <button className="add-new-lot-button" onClick={goToAddLot}>Додати новий лот</button>
+          ) : ( <div></div>
+          )}
+        </div>
+        <div>
+          <section>
+            {view === "lots" ? (
+              <div className="header-container">
+                <h2>Ваші лоти</h2>
+                <h3 className="go-to-bids" onClick={goToBids}>
+                  Перейти до ваших ставок
+                </h3>
+              </div>
+            ) : (
+              <div className="header-container">
+                <h2>Ваші ставки</h2>
+                <h3 className="go-to-bids" onClick={goToLots}>
+                  Перейти до ваших лотів
+                </h3>
+              </div>
+            )}
+          </section>
+        </div>
       </div>
       <section>
-        <h2>Your Auction Lots</h2>
-        <div className="auction-items-container">
-          {auctionLots.map((lot) => (
-            <AuctionLotItem key={lot.id} {...lot} />
-          ))}
-        </div>
+        {view === "lots" ? (
+          <div className="auction-items-profile-container">
+            {auctionLots.map((lot) => (
+              <AuctionLotItem key={lot.id} {...lot} />
+            ))}
+          </div>
+        ) : (
+          <div className="auction-bids-container">
+            <div className="user-bid-item">
+              <div>Назва лоту</div>
+              <div>Ціна</div>
+              <div>Статус</div>
+              <div>Дата</div>
+            </div>
+            {userBids.map((bid) => (
+              <UserBidItem key={bid.id} {...bid} />
+            ))}
+          </div>
+        )}
       </section>
     </div>
   );

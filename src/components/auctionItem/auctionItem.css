@@ -1,38 +1,75 @@
-/* auctionItem.css */
 .auction-item {
-  border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
+  background-color: #ffffff; /* White background */
+  border-radius: 20px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  display: flex;
+  flex-direction: column;
+  font-family: 'Arial', sans-serif; /* Assuming Arial is the font */
+  width: 100%; 
+  box-sizing: border-box;
 }
 
-.auction-item img {
-  width: 100%;
-  height: auto;
-  margin-bottom: 0.5rem;
+.auction-item-img {
+  border-radius: 20px;
+  aspect-ratio: 16/9; /* Keeps the image aspect ratio */
 }
 
-.auction-item h3 {
-  margin-bottom: 0.25rem;
+.auction-item-content {
+  padding: 15px; /* Spacing inside the card */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Distributes space between items */
 }
 
-.auction-item p {
-  margin-bottom: 0.25rem;
+.auction-item-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333333; /* Dark grey color for text */
 }
 
-.auction-item button {
-  background-color: #007bff;
+.auction-item-detail {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #e6e6e6; /* Light grey border at the top */
+  padding-top: 10px; /* Spacing above the detail line */
+  margin-top: 10px; /* Spacing from title to detail line */
+}
+
+.auction-item-label {
+  font-size: 0.9rem;
+  color: #666666; /* Lighter text color for labels */
+}
+
+.auction-item-value {
+  font-size: 1rem;
+  color: #333333; /* Dark grey color for values */
+}
+
+.auction-item-button {
+  background-color: #007bff; /* Blue background for button */
   color: white;
-  padding: 0.75rem 1.25rem;
+  padding: 10px 20px;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 20px;
   cursor: pointer;
-  margin-top: 0.5rem;
+  font-size: 1rem;
+  margin-top: 15px; /* Space from details to button */
+  align-self: center; /* Center the button in the flex container */
+  text-transform: uppercase; /* UPPERCASE text for button */
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for button */
 }
 
-.auction-item-img{
-  width: 100%;
-  height: auto;
-  margin-bottom: 0.5rem;  
-  aspect-ratio: 16/9;
+/* Hover effect for button */
+.auction-item-button:hover {
+  background-color: #0056b3; /* Slightly darker blue on hover */
+}
+
+/* Responsive image for different screen sizes */
+@media (max-width: 768px) {
+  .auction-item-img {
+    aspect-ratio: auto; /* Adjust aspect ratio for smaller screens */
+  }
 }
