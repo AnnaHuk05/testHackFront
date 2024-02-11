@@ -1,0 +1,50 @@
+.lot-info {
+    background-color: #d8ab88; 
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+  }
+  
+  .auction-item-title {
+    color: #0e0209; 
+  }
+  
+  .auction-item-detail {
+    margin-bottom: 10px;
+  }
+  
+  .auction-item-label {
+    color: #071019; 
+  }
+  
+  .bid-info {
+    border-top: 1px solid #b3d9ff; 
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+  
+ 
+  
+  .make-bid-button {
+    background-color:#cc7a00; 
+    color: #ffffff; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: auto;
+  }
+  
+  .popup-story {
+    margin-top: 20px;
+  }
+  
+  .openPopUp {
+    background-color: #cc7a00; 
+    color: #ffffff; 
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: auto;
+  }

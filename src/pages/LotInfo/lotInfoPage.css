@@ -1,0 +1,10 @@
+.info-page {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 2rem;
+  }
+  
+  .info-page > * {
+    flex: 1 0 50%;
+  }
+ 
