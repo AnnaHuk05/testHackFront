@@ -18,8 +18,12 @@ const AuctionDetailsPage = () => {
     const fetchAuctionDetails = async () => {
       try {
         console.log(`${SERVER_URL}auction-lots/1`);
-        const response = await fetch(`${SERVER_URL}auction-lots/1`);
+        const response = await fetch(`${SERVER_URL}auction-lots/${lot_id}/`, {
+            credentials: "include",
+          });
+        console.log(response);
         const data = await response.json();
+        console.log(data);
         setAuction(data);
       } catch (error) {
         console.error('Error fetching auction details:', error);
@@ -43,7 +47,8 @@ const AuctionDetailsPage = () => {
 
     // Submit bid
     try {
-      const response = await mockFetch(`${SERVER_URL}auction-lots/${lot_id}/bids/`, {
+      const response = await fetch(`${SERVER_URL}auction-lots/${lot_id}/bids/`, {
+        credentials: 'include',
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -69,16 +74,12 @@ const AuctionDetailsPage = () => {
 
   return (
     <div className="auction-details">
-      <Carousel>
-        {auction.imageNames.map((imageName, index) => (
-          <Carousel.Item key={index}>
-            <img
-              className="d-block w-100"
-              src={`${SERVER_URL}images/${imageName}`}
-              alt={`Slide ${index}`}
-            />
-          </Carousel.Item>
-        ))}
+      <Carousel data={auction.imageNames.map((src, index) => {
+              return {
+                src,
+                alt: `Slide ${index + 1}`,
+              };
+            })}>
       </Carousel>
       <div className="auction-info">
         <h1>{auction.name}</h1>
