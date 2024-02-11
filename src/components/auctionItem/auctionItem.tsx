@@ -2,8 +2,13 @@ import React from "react";
 import "./auctionItem.css";
 import { AuctionLotPartialResponse } from "../../types";
 import placeholder from "../../image-na.png";
+import { useNavigate } from "react-router-dom";
 
 function AuctionItem(lot : AuctionLotPartialResponse) {
+  const navigate = useNavigate();
+  const handleButtonClick = () => {
+    navigate(`/auction/${lot.id}`);
+  }
   return (
     <div className="auction-item">
       <img src={lot.imageNames[0]? lot.imageNames[0]: placeholder} alt={lot.name} className="auction-item-img"/>
@@ -21,7 +26,7 @@ function AuctionItem(lot : AuctionLotPartialResponse) {
           <span className="auction-item-label">Кількість ставок:</span>
           <span>{lot.bidsCount?lot.bidsCount:"Ставок поки що немає"}</span>
         </div>
-        <button className="auction-item-button">Детальніше</button>
+        <button className="auction-item-button" onClick={handleButtonClick}>Детальніше</button>
       </div>
     </div>
   );

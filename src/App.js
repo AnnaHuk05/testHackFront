@@ -11,6 +11,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import AddAuctionPage from "./pages/addAuction/addAuctionPage.tsx";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import AuctionDetailsPage from "./pages/auctionDetaisPage.tsx";
 
 function App() {
 
@@ -23,6 +24,9 @@ function App() {
         <Route path="/lotInfo" element={<LotInfoPage />} />
         <Route path="/user-info" element={<UserProfilePage />} />
         <Route path="/add-lot" element={<AddAuctionPage />} />
+        {/* <Route path="/auction/:id" element={<AuctionDetailsPage/>} /> */}
+        <Route path="*" element={<h1>Ми до цього не встигли дописати фронтенд, вибачайте, але на 
+          беці(https://github.com/OMartsin/Hackathon) все є, гляньте бумбласка</h1>} />
       </Routes>
     </Router>
   );
