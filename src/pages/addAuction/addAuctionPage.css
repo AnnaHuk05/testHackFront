@@ -1,0 +1,92 @@
+/* AddAuctionPage.css */
+
+.image-upload-section {
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .image-preview-container {
+    position: relative;
+    margin-bottom: 10px;
+  }
+  
+  .image-preview {
+    height: 500px;
+    aspect-ratio: 16/9;
+    border: 1px solid #ccc; 
+  }
+  
+  .form-fields-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  
+  /* Style for the delete button on image preview */
+  .image-preview-container button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ff6b6b; /* Red color for delete button */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  /* Additional styling for the form elements */
+  .input-field {
+    margin-bottom: 10px;
+  }
+  
+  /* Styling for the overall form container */
+  .MuiBox-root {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px; /* Space between image section and form fields */
+    padding: 20px;
+  }
+  
+  /* If you need a responsive design, you can use a media query */
+  @media (max-width: 768px) {
+    .box {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .form-fields-section,
+    .image-upload-section {
+      max-width: 100%;
+    }
+  
+    .image-preview {
+      max-width: 100%;
+    }
+  }
+
+  
+.img-body img {
+    display: flex;
+    margin: 0 auto;
+    height: 40vh;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .img-body {
+    margin: 0 auto;
+    aspect-ratio: 16/9;
+    outline-color: red;
+    display: inline-block;
+  }
+
+  .image-slider-container{
+    display: flex;
+  }
+
+  .rotate-180 {
+    transform: rotate(180deg);
+  }
+  

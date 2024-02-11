@@ -9,6 +9,8 @@ import { SERVER_URL } from "./constants.ts";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import AddAuctionPage from "./pages/addAuction/addAuctionPage.tsx";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function App() {
   const [auctions, setAuctions] = useState([]);
