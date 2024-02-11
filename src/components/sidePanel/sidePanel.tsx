@@ -3,8 +3,9 @@ import "./sidePanel.css";
 import Slider from "@mui/joy/Slider";
 import Input from "@mui/joy/Input";
 import Button from "@mui/joy/Button";
+import {auctionCategories} from "../../types.ts";
 
-const SidePanel: React.FC = () => {
+const SidePanel: React.FC<Props> = (props) => {
   const [value, setValue] = useState<number[]>([1000, 2000]);
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
 
@@ -22,27 +23,20 @@ const SidePanel: React.FC = () => {
     });
   };
 
-  const handleFilterApply = () => {
-    console.log("Applied filters:", {
-      categories: selectedCategories,
-      priceRange: value,
-    });
-    // Implement the filter logic here
-  };
-
-  const categories = [
-    "Антикваріат",
-    "Мистецтво",
-    "Ювелірні вироби",
-    // Ensure no duplicate categories
-  ];
+    const handleFilterApply = () => {
+      console.log("Applied filters:", {
+        categories: selectedCategories,
+        priceRange: value,
+      });
+      props.onFilterApply({ categories: selectedCategories, priceRange: value });
+    };
 
   return (
     <aside className="side-panel">
       <div className="categories-section">
         <h3>ТИП ЛОТУ</h3>
         <ul className="category-list">
-          {categories.map((category, index) => (
+          {auctionCategories.map((category, index) => (
             <li key={index}>
               <label>
                 <input

@@ -57,8 +57,15 @@ export interface AuctionCategory {
 }
 
 export const auctionCategories: string[] = [
-  'ELECTRONICS',
-  'FURNITURE' ,
-  'ANTIQUES'
+  "ART",
+  "ANTIQUES",
+  "JEWELRY",
+  "FURNITURE",
+  "ELECTRONICS",
+  "CLOTHING",
+  "COLLECTIBLES",
+  "TOYS",
+  "SPORTS",
+  "OTHER"
 ];
 
